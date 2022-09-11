@@ -12,17 +12,13 @@ export default function SignIn() {
     const [signinform, setSigninform] = useState({email:'', password:''});
     const [waiting, setWaiting] = useState(false);
     const navigate = useNavigate();
-    const { setUserToken, usertoken } = useContext(AuthContext);
-
-
-    console.log(usertoken);
-
+    const { setUsertoken } = useContext(AuthContext);
 
     function handleForm(event) {
         event.preventDefault();
         setWaiting(true);
         signIn(signinform).then((res) => {
-            setUserToken(res.data);
+            setUsertoken(res.data);
             navigate('/wallet');
         })
         .catch((error)=>{

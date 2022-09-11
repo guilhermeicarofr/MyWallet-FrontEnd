@@ -12,7 +12,19 @@ function signUp(body) {
     return promise;
 }
 
+function getUserName(token) {
+    const promise = axios.get(`${BASE_URL}/name`, { headers: {'Authorization':`Bearer ${token}`} });
+    return promise;
+}
+
+function getUserBalance(token) {
+    const promise = axios.get(`${BASE_URL}/balance`, { headers: {'Authorization':`Bearer ${token}`} });
+    return promise;
+}
+
 export {
     signIn,
-    signUp
+    signUp,
+    getUserName,
+    getUserBalance
 };
