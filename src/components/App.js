@@ -6,14 +6,13 @@ import { RefreshContext } from '../contexts/RefreshContext.js'
 import GlobalStyles from '../styles/globalStyles.js';
 
 import SignIn from '../components/User/SignIn.js'
+import SignUp from '../components/User/SignUp.js';
 
 
-function App() {
-
+export default function App() {
 
   const [usertoken, setUsertoken] = useState({token: ''});
   const [refresh, setRefresh] = useState(false);
-  
 
   return (
     <AuthContext.Provider value={{ usertoken, setUsertoken }}>
@@ -24,7 +23,7 @@ function App() {
       
         <Routes>
           <Route path='/' element={<SignIn/>} />
-          {/* <Route path='/signup' element={<SignUp/>} /> */}
+          <Route path='/signup' element={<SignUp/>} />
         </Routes>
       
       
@@ -33,5 +32,3 @@ function App() {
     </AuthContext.Provider>
   );
 }
-
-export default App;

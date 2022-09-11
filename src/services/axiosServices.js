@@ -7,6 +7,12 @@ function signIn(body) {
     return promise;
 }
 
+function signUp(body) {
+    const promise = axios.post(`${BASE_URL}/signup`, body);
+    return promise;
+}
+
 export {
-    signIn
+    signIn,
+    signUp
 };

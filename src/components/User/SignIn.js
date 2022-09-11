@@ -7,13 +7,16 @@ import { signIn } from '../../services/axiosServices.js';
 
 import UserForm from './UserFormStyle.js';
 
-
 export default function SignIn() {
 
     const [signinform, setSigninform] = useState({email:'', password:''});
     const [waiting, setWaiting] = useState(false);
     const navigate = useNavigate();
-    const { setUserToken } = useContext(AuthContext);
+    const { setUserToken, usertoken } = useContext(AuthContext);
+
+
+    console.log(usertoken);
+
 
     function handleForm(event) {
         event.preventDefault();
@@ -33,8 +36,8 @@ export default function SignIn() {
         return (
             <UserForm waiting={waiting}>
                 <form onSubmit={handleForm}>
-                    <input onChange={(event)=>setSigninform({...signinform, email: event.target.value})} value={signinform.email} placeholder='email' type='email' required/>
-                    <input onChange={(event)=>setSigninform({...signinform, password: event.target.value})} value={signinform.password} placeholder='senha' type='password' required/>
+                    <input onChange={(event)=>setSigninform({...signinform, email: event.target.value})} value={signinform.email} placeholder='E-mail' type='email' required/>
+                    <input onChange={(event)=>setSigninform({...signinform, password: event.target.value})} value={signinform.password} placeholder='Senha' type='password' required/>
                     <button>Entrar</button>
                 </form>
                 <h3 onClick={()=>navigate('/signup')}>Primeira vez? Cadastre-se!</h3>
@@ -44,8 +47,8 @@ export default function SignIn() {
         return (
             <UserForm waiting={waiting}>
                 <form onSubmit={(event)=>event.preventDefault()}>
-                    <input value={signinform.email} placeholder='email' type='email' disabled required/>
-                    <input value={signinform.password} placeholder='senha' type='password' disabled required/>
+                    <input value={signinform.email} placeholder='E-mail' type='email' disabled required/>
+                    <input value={signinform.password} placeholder='Senha' type='password' disabled required/>
                     <button><ThreeDots
                         height = "20"
                         width = "50"
