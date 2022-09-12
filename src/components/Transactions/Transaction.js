@@ -23,6 +23,7 @@ export default function Transaction({id, title, value, type, date}) {
         }
     }
 
+    
     return (
         <TransactionContainer type={type}>
             <span>{date.split('/').slice(0,-1).join('/')}</span>

@@ -12,7 +12,7 @@ import EntryForm from './Wallet/EntryForm.js';
 
 export default function App() {
 
-  const [usertoken, setUsertoken] = useState({token: ''});
+  const [usertoken, setUsertoken] = useState('');
   const [refresh, setRefresh] = useState(false);
 
   
@@ -22,9 +22,9 @@ export default function App() {
       <GlobalStyles/>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<SignIn/>} />
-          <Route path='/signup' element={<SignUp/>} />
-          <Route path='/wallet' element={<Wallet/>} />
+          <Route path='/' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/wallet' element={<Wallet />} />
           <Route path='/entry/:type' element={<EntryForm />} />
         </Routes>      
       </BrowserRouter>

@@ -19,6 +19,11 @@ export default function Wallet() {
 
     const navigate = useNavigate();
 
+    if(!usertoken) {
+        alert('Você não possui autorização!');
+        navigate('/');
+    }
+
     useEffect(() => {
         getUserName(usertoken).then((res) => {
             setUsername(res.data);

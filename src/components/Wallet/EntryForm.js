@@ -19,6 +19,11 @@ export default function EntryForm() {
     
     const navigate = useNavigate();
 
+    if(!usertoken) {
+        alert('Você não possui autorização!');
+        navigate('/');
+    }
+
     function handleForm(event) {
         event.preventDefault();
         setWaiting(true);
@@ -40,7 +45,7 @@ export default function EntryForm() {
             <EntryFormContainer onSubmit={handleForm}>
                 <h2>Nova {(type==='+')?'entrada':'saída'}</h2>
                 <input onChange={(event)=>setEntryform({...entryform, title: event.target.value})} value={entryform.title} placeholder='Título' type='text' required/>
-                <input onChange={(event)=>setEntryform({...entryform, value: event.target.value})} value={entryform.value} placeholder='Valor' type='number' required/>
+                <input onChange={(event)=>setEntryform({...entryform, value: event.target.value})} value={entryform.value} placeholder='Valor' type='number' step='0.01' min='0.01' required/>
                 <button>Salvar {(type==='+')?'entrada':'saída'}</button>
             </EntryFormContainer>
         );
@@ -49,11 +54,11 @@ export default function EntryForm() {
             <EntryFormContainer onSubmit={handleForm}>
                 <h2>Nova {(type==='+')?'entrada':'saída'}</h2>
                 <input onChange={(event)=>setEntryform({...entryform, title: event.target.value})} value={entryform.title} placeholder='Título' type='text' disabled required/>
-                <input onChange={(event)=>setEntryform({...entryform, value: event.target.value})} value={entryform.value} placeholder='Valor' type='number' disabled required/>
+                <input onChange={(event)=>setEntryform({...entryform, value: event.target.value})} value={entryform.value} placeholder='Valor' type='number' step='0.01' min='0.01' disabled required/>
                 <button><ThreeDots
-                        height = "20"
-                        width = "50"
-                        radius = "9"
+                        height = '20'
+                        width = '50'
+                        radius = '9'
                         color = '#FFFFFF'
                         ariaLabel = 'three-dots-loading'     
                         wrapperStyle
