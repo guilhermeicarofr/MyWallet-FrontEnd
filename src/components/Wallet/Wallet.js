@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { AuthContext } from '../../contexts/AuthContext.js';
@@ -15,6 +16,8 @@ export default function Wallet() {
 
     const [username, setUsername] = useState('');
     const [userbalance, setUserbalance] = useState(0);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         getUserName(usertoken).then((res) => {
@@ -34,13 +37,18 @@ export default function Wallet() {
         });
     },[usertoken, refresh]);
 
+    function logOut() {
+        navigate('/');
+        //delete session
+    }
+
 
     return (
         <WalletContainer userbalance={userbalance}>
             <header>
                 <p>Olá, {username}</p>
                 {/* Add logout functions */}
-                <ion-icon name='log-out-outline' />
+                <ion-icon name='log-out-outline' onClick={logOut}/>
             </header>
             <div>
                 <TransactionsList />
@@ -76,6 +84,7 @@ const WalletContainer = styled.main`
             font-size: 24px;
             color: #FFFFFF;
             margin-left: 20px;
+            z-index: 1;
         }
     }
     footer {

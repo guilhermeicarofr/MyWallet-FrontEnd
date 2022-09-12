@@ -16,6 +16,7 @@ export default function EntryForm() {
 
     const [entryform, setEntryform] = useState({title:'', value:''});
     const [waiting, setWaiting] = useState(false);
+    
     const navigate = useNavigate();
 
     function handleForm(event) {

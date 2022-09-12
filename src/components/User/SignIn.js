@@ -9,10 +9,12 @@ import UserForm from './UserFormStyle.js';
 
 export default function SignIn() {
 
+    const { setUsertoken } = useContext(AuthContext);
+
     const [signinform, setSigninform] = useState({email:'', password:''});
     const [waiting, setWaiting] = useState(false);
+
     const navigate = useNavigate();
-    const { setUsertoken } = useContext(AuthContext);
 
     function handleForm(event) {
         event.preventDefault();

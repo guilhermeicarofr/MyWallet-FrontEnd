@@ -10,6 +10,7 @@ export default function SignIn() {
     
     const [signupform, setSignupform] = useState({name:'', email:'', password1:'', password2:''});
     const [waiting, setWaiting] = useState(false);
+    
     const navigate = useNavigate();
 
     function handleForm(event) {
