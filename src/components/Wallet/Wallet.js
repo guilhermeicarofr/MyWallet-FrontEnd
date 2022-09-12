@@ -34,17 +34,14 @@ export default function Wallet() {
     },[usertoken, refresh]);
 
     return (
-        <WalletContainer>
+        <WalletContainer userbalance={userbalance}>
             <header>
-                <h2>Olá, {username}</h2>
-
-
+                <p>Olá, {username}</p>
+                <ion-icon name='log-out-outline' />
             </header>
             <div>
-
-
-                
-                <h3>Saldo: <strong>{userbalance}</strong></h3>
+                {/* <TransactionsList /> */}               
+                <h3><span>SALDO</span><strong>{userbalance}</strong></h3>
             </div>
             {/* <EntryButton />
             <EntryButton /> */}
@@ -54,8 +51,51 @@ export default function Wallet() {
 
 const WalletContainer = styled.main`
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    header {
+        width: 100vw;
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 24px 0px 24px;
+        p {
+            font-size: 26px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+        ion-icon {
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+    }
+    div {
+        background-color: #FFFFFF;
+        width: 87vw;
+        height: 446px;
+        position: relative;
+        border: 1px solid #FFFFFF;
+        border-radius: 5px;
+    }
+    h3 {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 15px 0px 15px;
+        font-size: 17px;
+        color: #000000;
+        font-weight: 700;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        strong {
+            font-weight: 400;
+            color: ${props => Number(props.userbalance)>=0? '#03AC00' : '#C70000'}
+        }
+    }
 `;
