@@ -29,7 +29,7 @@ export default function EntryButton({ type }) {
 
 const ButtonContainer = styled.button`
     width: 42vw;
-    height: 114px;
+    height: 17vh;
     position: absolute;
     bottom: 15px;
     right: 0px;

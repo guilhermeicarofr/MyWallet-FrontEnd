@@ -5,15 +5,16 @@ import { AuthContext } from '../../contexts/AuthContext.js';
 import { RefreshContext } from '../../contexts/RefreshContext.js';
 import { getUserName, getUserBalance } from '../../services/axiosServices.js';
 
-//components
+import TransactionsList from '../Transactions/TransactionsList.js';
 import EntryButton from './EntryButton.js';
 
 export default function Wallet() {
 
-    const [username, setUsername] = useState('');
-    const [userbalance, setUserbalance] = useState(0);
     const { usertoken } = useContext(AuthContext);
     const { refresh } = useContext(RefreshContext);
+
+    const [username, setUsername] = useState('');
+    const [userbalance, setUserbalance] = useState(0);
 
     useEffect(() => {
         getUserName(usertoken).then((res) => {
@@ -33,7 +34,7 @@ export default function Wallet() {
         });
     },[usertoken, refresh]);
 
-    
+
     return (
         <WalletContainer userbalance={userbalance}>
             <header>
@@ -42,7 +43,7 @@ export default function Wallet() {
                 <ion-icon name='log-out-outline' />
             </header>
             <div>
-                {/* <TransactionsList /> */}
+                <TransactionsList />
                 <h3><span>SALDO</span><strong>{userbalance}</strong></h3>
             </div>
             <footer>
@@ -61,7 +62,7 @@ const WalletContainer = styled.main`
     align-items: center;
     header {
         width: 100vw;
-        height: 78px;
+        height: 12vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -79,13 +80,13 @@ const WalletContainer = styled.main`
     }
     footer {
         width: 100%;
-        height: 143px;
+        height: 21vh;
         position: relative;
     }
     div {
         background-color: #FFFFFF;
         width: 87vw;
-        height: 446px;
+        height: 67vh;
         position: relative;
         border: 1px solid #FFFFFF;
         border-radius: 5px;
@@ -93,6 +94,7 @@ const WalletContainer = styled.main`
     h3 {
         width: 100%;
         height: 40px;
+        background-color: #FFFFFF;
         display: flex;
         align-items: center;
         justify-content: space-between;

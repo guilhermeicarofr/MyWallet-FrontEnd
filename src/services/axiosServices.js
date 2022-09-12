@@ -22,9 +22,15 @@ function getUserBalance(token) {
     return promise;
 }
 
+function getTransactions(token) {
+    const promise = axios.get(`${BASE_URL}/transactions`, { headers: {'Authorization':`Bearer ${token}`} });
+    return promise;
+}
+
 export {
     signIn,
     signUp,
     getUserName,
-    getUserBalance
+    getUserBalance,
+    getTransactions
 };
