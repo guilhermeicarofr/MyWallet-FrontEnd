@@ -27,10 +27,16 @@ function getTransactions(token) {
     return promise;
 }
 
+function postTransaction(token, body) {
+    const promise = axios.post(`${BASE_URL}/transactions`, body, { headers: {'Authorization':`Bearer ${token}`} });
+    return promise;
+}
+
 export {
     signIn,
     signUp,
     getUserName,
     getUserBalance,
-    getTransactions
+    getTransactions,
+    postTransaction
 };

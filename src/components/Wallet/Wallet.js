@@ -44,7 +44,7 @@ export default function Wallet() {
             </header>
             <div>
                 <TransactionsList />
-                <h3><span>SALDO</span><strong>{userbalance}</strong></h3>
+                <h3><span>SALDO</span><strong>{userbalance.toFixed(2)}</strong></h3>
             </div>
             <footer>
                 <EntryButton type='+'/>

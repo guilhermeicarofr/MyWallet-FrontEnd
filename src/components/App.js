@@ -8,6 +8,7 @@ import GlobalStyles from '../styles/globalStyles.js';
 import SignIn from '../components/User/SignIn.js'
 import SignUp from '../components/User/SignUp.js';
 import Wallet from '../components/Wallet/Wallet.js';
+import EntryForm from './Wallet/EntryForm.js';
 
 export default function App() {
 
@@ -26,6 +27,7 @@ export default function App() {
           <Route path='/' element={<SignIn/>} />
           <Route path='/signup' element={<SignUp/>} />
           <Route path='/wallet' element={<Wallet/>} />
+          <Route path='/entry/:type' element={<EntryForm />} />
         </Routes>
       
       

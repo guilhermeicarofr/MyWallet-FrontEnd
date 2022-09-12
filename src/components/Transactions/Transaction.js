@@ -8,7 +8,7 @@ export default function Transaction({id, title, value, type, date}) {
         <TransactionContainer type={type}>
             <span>{date.split('/').slice(0,-1).join('/')}</span>
             <span>{title}</span>
-            <span>{value}</span>
+            <span>{value.toFixed(2)}</span>
         </TransactionContainer>
     );
 }
