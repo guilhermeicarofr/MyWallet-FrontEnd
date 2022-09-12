@@ -21,16 +21,12 @@ export default function App() {
     <RefreshContext.Provider value={{ refresh, setRefresh }}>
       <GlobalStyles/>
       <BrowserRouter>
-
-      
         <Routes>
           <Route path='/' element={<SignIn/>} />
           <Route path='/signup' element={<SignUp/>} />
           <Route path='/wallet' element={<Wallet/>} />
           <Route path='/entry/:type' element={<EntryForm />} />
-        </Routes>
-      
-      
+        </Routes>      
       </BrowserRouter>
     </RefreshContext.Provider>
     </AuthContext.Provider>
