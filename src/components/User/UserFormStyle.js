@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export default function UserForm ({children, waiting}) {
+
+
     return (
         <UserFormContainer waiting={waiting}>
             <h1>MyWallet</h1>

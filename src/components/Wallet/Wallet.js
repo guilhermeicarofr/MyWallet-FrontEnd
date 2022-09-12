@@ -6,7 +6,7 @@ import { RefreshContext } from '../../contexts/RefreshContext.js';
 import { getUserName, getUserBalance } from '../../services/axiosServices.js';
 
 //components
-
+import EntryButton from './EntryButton.js';
 
 export default function Wallet() {
 
@@ -33,18 +33,22 @@ export default function Wallet() {
         });
     },[usertoken, refresh]);
 
+    
     return (
         <WalletContainer userbalance={userbalance}>
             <header>
                 <p>Olá, {username}</p>
+                {/* Add logout functions */}
                 <ion-icon name='log-out-outline' />
             </header>
             <div>
-                {/* <TransactionsList /> */}               
+                {/* <TransactionsList /> */}
                 <h3><span>SALDO</span><strong>{userbalance}</strong></h3>
             </div>
-            {/* <EntryButton />
-            <EntryButton /> */}
+            <footer>
+                <EntryButton type='+'/>
+                <EntryButton type='-'/>
+            </footer>
         </WalletContainer>
     );
 }
@@ -70,7 +74,13 @@ const WalletContainer = styled.main`
         ion-icon {
             font-size: 24px;
             color: #FFFFFF;
+            margin-left: 20px;
         }
+    }
+    footer {
+        width: 100%;
+        height: 143px;
+        position: relative;
     }
     div {
         background-color: #FFFFFF;
