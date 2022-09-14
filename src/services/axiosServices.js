@@ -1,13 +1,8 @@
 import axios from 'axios';
 
-async function getURL() {
-    const url = await process.env.BACKEND_URL;
-    return url;
-}
-getURL().then((res) => {
-    const URL = res.data;
-    console.log(URL);
-});
+const URL = process.env.REACT_APP_API_URL;
+console.log(URL);
+
 
 function signIn(body) {
     const promise = axios.post(`${URL}/signin`, body);
