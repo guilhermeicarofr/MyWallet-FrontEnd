@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = process.env.BACKEND_URL;
+const URL = await process.env.BACKEND_URL;
 console.log(URL);
 
 function signIn(body) {
