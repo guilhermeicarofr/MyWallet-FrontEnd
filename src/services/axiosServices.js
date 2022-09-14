@@ -7,8 +7,7 @@ async function getURL() {
 getURL().then((res) => {
     const URL = res.data;
     console.log(URL);
-}
-
+});
 
 function signIn(body) {
     const promise = axios.post(`${URL}/signin`, body);
