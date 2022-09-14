@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 const URL = process.env.REACT_APP_API_URL;
-console.log(URL);
-
 
 function signIn(body) {
     const promise = axios.post(`${URL}/signin`, body);
