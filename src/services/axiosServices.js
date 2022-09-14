@@ -1,7 +1,4 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 function signIn(body) {
     const promise = axios.post(`${process.env.BASE_URL}/signin`, body);
