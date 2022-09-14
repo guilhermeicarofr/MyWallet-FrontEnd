@@ -1,7 +1,12 @@
 import axios from 'axios';
 
-const URL = await process.env.BACKEND_URL;
-console.log(URL);
+async function getURL() {
+    const url = await process.env.BACKEND_URL;
+    console.log(URL);
+    return url;
+}
+
+const URL = getURL();
 
 function signIn(body) {
     const promise = axios.post(`${URL}/signin`, body);
